@@ -2,9 +2,11 @@
 
  // Convention is to name the model in uppercase and singular
  const Skill = require('../models/skill');
+ 
 
 module.exports = {
-  index
+  index,
+  show
 };
 
 function index(req, res) {
@@ -13,4 +15,8 @@ function index(req, res) {
     });
   }
 
- 
+ function show(req, res) {
+    res.render('skills/show',  {
+    skill: Skill.getOne(req.params.id) 
+    })
+ }
