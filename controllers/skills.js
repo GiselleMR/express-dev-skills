@@ -6,8 +6,13 @@
 
 module.exports = {
   index,
-  show
+  show,
+  new: newSkill
 };
+
+function newSkill(req, res) {
+  res.render('skills/new', {title: 'New Skill'});
+}
 
 function index(req, res) {
     res.render('skills/index', {
@@ -16,7 +21,8 @@ function index(req, res) {
   }
 
  function show(req, res) {
-    res.render('skills/show',  {
-    skill: Skill.getOne(req.params.id) 
+    res.render('skills/show', {
+    skill: Skill.getOne(req.params.id),
+    title: 'Skill Details' 
     });
  }
